@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import AutoImport from "unplugin-auto-import/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -15,5 +16,15 @@ export default defineConfig({
       "@": path.resolve(import.meta.dirname, "src"),
     },
   },
-  plugins: [react()],
+  plugins: [
+    react(),
+    AutoImport({
+      eslintrc: {
+        enabled: true,
+        filepath: "./.eslintrc-auto-import.json",
+      },
+      dts: "./types/auto-imports.d.ts", //此文件配置保存后系统自动生成
+      imports: ["react"], //此处可填写需要自动引入的库
+    }),
+  ],
 });
