@@ -2,7 +2,7 @@
 import { createRoot } from "react-dom/client";
 import App from "@/App";
 
-import "@/comm/styles/index.scss";
+import "@/common/styles/index.scss";
 
 createRoot(document.getElementById("root")!).render(
   // <StrictMode>
