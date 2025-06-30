@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@theme inline {
+  --color-primary: #1577ff;
+  --color-primary-light: #4096ff;
+  --color-primary-dark: #0958d9;
+  --color-br: #1577ff;
+  --color-fill: #1577ff;
+  --color-fill-light: #4096ff;
+  --color-fill-lighter: #69b1ff;
+  --color-tint: #111827;
+  --color-tint-light: #92959b;
+  --color-tint-lighter: #a0aec0;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 22px;
+}
+@theme {
+}
