@@ -26,4 +26,5 @@ declare global {
   const useState: typeof import('react')['useState']
   const useSyncExternalStore: typeof import('react')['useSyncExternalStore']
   const useTransition: typeof import('react')['useTransition']
+  const useTwoWayBind: typeof import('@/hooks/form')['useTwoWayBind']
 }

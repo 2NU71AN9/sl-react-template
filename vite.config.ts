@@ -26,7 +26,12 @@ export default defineConfig({
         filepath: "./.eslintrc-auto-import.json",
       },
       dts: "./types/auto-imports.d.ts", //此文件配置保存后系统自动生成
-      imports: ["react"], //此处可填写需要自动引入的库
+      imports: [
+        "react",
+        {
+          "@/hooks/form": ["useTwoWayBind"],
+        },
+      ], //此处可填写需要自动引入的库
     }),
   ],
 });

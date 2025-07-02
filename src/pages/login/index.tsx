@@ -15,21 +15,28 @@ function Login() {
   };
 
   return (
-    <div>
-      <Form onFinish={loginSubmit}>
-        <div className="text-red-4">123</div>
-        <Input></Input>
-        <Input></Input>
-        <Button
-          type="primary"
-          htmlType="submit"
-          size="large"
-          block={true}
-          loading={loading}
-        >
-          登录
-        </Button>
-      </Form>
+    <div className="w-full h-full flex justify-center items-center bg-gray-50">
+      <div className="w-1/2 h-2/3 p-[100px] bg-white">
+        <Form onFinish={loginSubmit}>
+          <Form.Item className="item" name="account">
+            <Input></Input>
+          </Form.Item>
+          <Form.Item className="item" name="password">
+            <Input.Password></Input.Password>
+          </Form.Item>
+          <Form.Item className="item">
+            <Button
+              type="primary"
+              htmlType="submit"
+              size="large"
+              block={true}
+              loading={loading}
+            >
+              登录
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
     </div>
   );
 }
