@@ -5,6 +5,8 @@ import {
   SunOutlined,
   MoonOutlined,
 } from "@ant-design/icons";
+import { ThemeOutlined } from "@/components/extraIcons";
+import ThemeModal from "@/components/themeModal";
 import { setDark } from "@/store/slices/theme";
 import "./index.scss";
 
@@ -36,6 +38,7 @@ export default function Header() {
       onClick: logout,
     },
   ];
+  const [themeModalVisible, setThemeModalVisible] = useState(false);
 
   return (
     <Card
@@ -53,6 +56,14 @@ export default function Header() {
             shape="circle"
             onClick={() => dispatch(setDark(!theme.dark))}
           />
+          {globalConfig.customColorPrimarys &&
+            globalConfig.customColorPrimarys.length > 0 && (
+              <Button
+                icon={<ThemeOutlined className="text-xl!" />}
+                shape="circle"
+                onClick={() => setThemeModalVisible(true)}
+              />
+            )}
           <Dropdown menu={{ items: menuItems }}>
             <div className="cursor-pointer">
               <span>{loginInfo ? loginInfo.nickname : "未登录"}</span>
@@ -61,6 +72,10 @@ export default function Header() {
           </Dropdown>
         </div>
       </div>
+      <ThemeModal
+        visible={themeModalVisible}
+        onClose={() => setThemeModalVisible(false)}
+      />
       {contextHolder}
     </Card>
   );

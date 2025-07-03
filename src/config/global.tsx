@@ -22,8 +22,8 @@ export const globalConfig = {
   ],
   // 左侧导航sider主题，light=亮色，dark=暗色，theme=跟随主题
   siderTheme: "theme",
-  // localStroge用户登录信息标识
+  // localStorage用户登录信息标识
   SESSION_LOGIN_INFO: "userLoginInfo",
-  // localStroge用户主题信息标识:
+  // localStorage用户主题信息标识:
   SESSION_LOGIN_THEME: "userTheme",
 };
