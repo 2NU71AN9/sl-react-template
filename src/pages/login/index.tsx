@@ -1,5 +1,7 @@
 import { Button, Form, Input } from "antd";
-function Login() {
+import { KeyOutlined, UserOutlined } from "@ant-design/icons";
+
+export default function Login() {
   const [loading, setLoading] = useState(false);
   const loginSubmit = (values: Record<string, string>) => {
     setLoading(true);
@@ -18,18 +20,34 @@ function Login() {
     <div className="w-full h-full flex justify-center items-center bg-gray-50">
       <div className="w-1/2 h-2/3 p-[100px] bg-white">
         <Form onFinish={loginSubmit}>
-          <Form.Item className="item" name="account">
-            <Input></Input>
+          <Form.Item
+            className="item"
+            name="account"
+            rules={[{ required: true, message: "请输入账号" }]}
+          >
+            <Input
+              size="large"
+              placeholder="请输入账号"
+              prefix={<UserOutlined />}
+            />
           </Form.Item>
-          <Form.Item className="item" name="password">
-            <Input.Password></Input.Password>
+          <Form.Item
+            className="item"
+            name="password"
+            rules={[{ required: true, message: "请输入密码" }]}
+          >
+            <Input.Password
+              size="large"
+              placeholder="请输入密码"
+              prefix={<KeyOutlined />}
+            />
           </Form.Item>
           <Form.Item className="item">
             <Button
               type="primary"
               htmlType="submit"
               size="large"
-              block={true}
+              block
               loading={loading}
             >
               登录
@@ -40,5 +58,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;

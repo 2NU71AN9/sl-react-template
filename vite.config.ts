@@ -28,6 +28,7 @@ export default defineConfig({
       dts: "./types/auto-imports.d.ts", //此文件配置保存后系统自动生成
       imports: [
         "react",
+        "react-router-dom",
         {
           "@/hooks/form": ["useTwoWayBind"],
         },
