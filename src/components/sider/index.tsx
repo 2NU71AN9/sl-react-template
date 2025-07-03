@@ -6,8 +6,6 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { useSelector } from "react-redux";
-import { globalConfig } from "@/config/global";
 
 const { useToken } = theme;
 

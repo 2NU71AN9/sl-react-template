@@ -38,6 +38,10 @@
     "useParams": true,
     "useResolvedPath": true,
     "useRoutes": true,
-    "useSearchParams": true
+    "useSearchParams": true,
+    "globalConfig": true,
+    "useDispatch": true,
+    "useSelector": true,
+    "createSlice": true
   }
 }

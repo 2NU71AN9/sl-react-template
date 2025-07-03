@@ -1,4 +1,3 @@
-import { useSelector, useDispatch } from "react-redux";
 import { Button, Card, Dropdown, Modal } from "antd";
 import {
   ExportOutlined,
@@ -7,7 +6,6 @@ import {
   MoonOutlined,
 } from "@ant-design/icons";
 import { setDark } from "@/store/slices/theme";
-import { globalConfig } from "@/config/global";
 import "./index.scss";
 
 export default function Header() {

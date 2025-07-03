@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { ConfigProvider, Layout, theme, type ThemeConfig } from "antd";
 import Header from "@/components/header";
 import Sider from "@/components/sider";

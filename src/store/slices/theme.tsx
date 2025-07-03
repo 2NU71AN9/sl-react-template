@@ -1,6 +1,3 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { globalConfig } from "@/config/global";
-
 const sessionTheme = localStorage.getItem(globalConfig.SESSION_LOGIN_THEME)
   ? JSON.parse(localStorage.getItem(globalConfig.SESSION_LOGIN_THEME)!)
   : undefined;

@@ -31,7 +31,10 @@ export default defineConfig({
         "react",
         "react-router-dom",
         {
+          "react-redux": ["useSelector", "useDispatch"],
+          "@reduxjs/toolkit": ["createSlice"],
           "@/hooks/form": ["useTwoWayBind"],
+          "@/config/global": ["globalConfig"],
         },
       ],
     }),
