@@ -4,7 +4,7 @@ export default function PageHeaderWrapper(props: Record<string, string>) {
   const { title, subtitle } = props;
 
   return (
-    <Card>
+    <Card className="rounded-none!" variant="borderless">
       <span className="text-2xl font-bold">{title}</span>
       <span>{subtitle}</span>
     </Card>
