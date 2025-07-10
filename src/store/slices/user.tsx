@@ -24,7 +24,6 @@ const userSlice = createSlice({
     logout: (state) => {
       state.userInfo = null;
       localStorage.removeItem(globalConfig.SESSION_LOGIN_INFO);
-      // TODO: 登出跳转
     },
   },
 });

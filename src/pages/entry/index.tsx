@@ -2,6 +2,11 @@ import { ConfigProvider, Layout, theme, type ThemeConfig } from "antd";
 import Header from "@/components/header";
 import Sider from "@/components/sider";
 
+function PrivateRoute(props) {
+  const user = useSelector<StateType, StateType["user"]>((state) => state.user);
+  return user.userInfo ? props.children : <Navigate to="/login" />;
+}
+
 export default function Entry() {
   const globalTheme = useSelector<StateType, StateType["theme"]>(
     (state) => state.theme
@@ -21,21 +26,23 @@ export default function Entry() {
     };
   }
   return (
-    <ConfigProvider theme={antdTheme}>
-      <Layout className="flex w-full h-full">
-        <Header />
-        <Layout className="flex-auto overflow-hidden">
-          <Sider />
-          <Layout>
-            <div className="flex-auto overflow-auto">
-              <Layout.Content className="min-w-[800px]">
-                {/* Outlet用来放置二级路由页面 */}
-                <Outlet />
-              </Layout.Content>
-            </div>
+    <PrivateRoute>
+      <ConfigProvider theme={antdTheme}>
+        <Layout className="flex w-full h-full">
+          <Header />
+          <Layout className="flex-auto overflow-hidden">
+            <Sider />
+            <Layout>
+              <div className="flex-auto overflow-auto">
+                <Layout.Content className="min-w-[800px]">
+                  {/* Outlet用来放置二级路由页面 */}
+                  <Outlet />
+                </Layout.Content>
+              </div>
+            </Layout>
           </Layout>
         </Layout>
-      </Layout>
-    </ConfigProvider>
+      </ConfigProvider>
+    </PrivateRoute>
   );
 }

@@ -8,6 +8,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig((mode: ConfigEnv) => {
   const env = loadEnv(mode.mode, process.cwd());
   return {
+    base: "./",
     server: {
       host: "0.0.0.0", // 监听所有IP地址
       port: 3000, // 监听端口 默认为5173
