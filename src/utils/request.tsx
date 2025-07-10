@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { message } from "antd";
 import axios, {
   AxiosError,

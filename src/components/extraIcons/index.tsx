@@ -12,7 +12,6 @@ const ThemeSvg = () => (
   </svg>
 );
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ThemeOutlined = (props: any) => (
   <Icon component={ThemeSvg} {...props} />
 );

@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import AutoImport from "unplugin-auto-import/vite";
 import tailwindcss from "@tailwindcss/vite";
+import checker from "vite-plugin-checker";
 
 // https://vite.dev/config/
 export default defineConfig((mode: ConfigEnv) => {
@@ -47,6 +48,13 @@ export default defineConfig((mode: ConfigEnv) => {
             "@/config/global": ["globalConfig"],
           },
         ],
+      }),
+      checker({
+        eslint: {
+          // true: 使用扁平模式配置（eslint.config.js）false: 使用传统模式配置（如.eslintrc.json、.eslintrc.cjs）
+          useFlatConfig: true,
+          lintCommand: 'eslint "./src/**/*.{js,jsx,ts,tsx}"',
+        },
       }),
     ],
   };

@@ -2,7 +2,7 @@ import { ConfigProvider, Layout, theme, type ThemeConfig } from "antd";
 import Header from "@/components/header";
 import Sider from "@/components/sider";
 
-function PrivateRoute(props) {
+function PrivateRoute(props: any) {
   const user = useSelector<StateType, StateType["user"]>((state) => state.user);
   return user.userInfo ? props.children : <Navigate to="/login" />;
 }
