@@ -1,4 +1,4 @@
 import { post } from "@/utils/request";
-export const login = (account: string, password: string) => {
+export const loginApi = (account: string, password: string) => {
   return post("/login", { account, password });
 };

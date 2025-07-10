@@ -1,19 +1,25 @@
 import { Button, Form, Input } from "antd";
 import { KeyOutlined, UserOutlined } from "@ant-design/icons";
+import { loginApi } from "@/api";
+import { setUserInfo } from "@/store/slices/user";
 
 export default function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const loginSubmit = (values: Record<string, string>) => {
+  const loginSubmit = async (values: Record<string, string>) => {
     setLoading(true);
     const data = {
       account: values.account,
       password: values.password,
     };
-    console.log(
-      "%c [ data ]-7",
-      "font-size:13px; background:pink; color:#bf2c9f;",
-      data
-    );
+    try {
+      const res = await loginApi(data.account, data.password);
+      dispatch(setUserInfo(res.data));
+      navigate("/home");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

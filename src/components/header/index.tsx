@@ -8,25 +8,22 @@ import {
 import { ThemeOutlined } from "@/components/extraIcons";
 import ThemeModal from "@/components/themeModal";
 import { setDark } from "@/store/slices/theme";
+import { logout } from "@/store/slices/user";
 import "./index.scss";
 
 export default function Header() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const theme = useSelector<StateType, StateType["theme"]>(
     (state) => state.theme
   );
+  const user = useSelector<StateType, StateType["user"]>((state) => state.user);
   const [modal, contextHolder] = Modal.useModal();
-  const loginInfo = localStorage.getItem(globalConfig.SESSION_LOGIN_INFO)
-    ? JSON.parse(localStorage.getItem(globalConfig.SESSION_LOGIN_INFO)!)
-    : null;
-  const logout = () => {
+  const handleLogout = () => {
     modal.confirm({
       title: "确定要退出登录吗？",
       okText: "确定",
       onOk: () => {
-        localStorage.removeItem(globalConfig.SESSION_LOGIN_INFO);
-        navigate("/login");
+        dispatch(logout());
       },
     });
   };
@@ -35,7 +32,7 @@ export default function Header() {
       label: "退出登录",
       key: "exit",
       icon: <ExportOutlined />,
-      onClick: logout,
+      onClick: handleLogout,
     },
   ];
   const [themeModalVisible, setThemeModalVisible] = useState(false);
@@ -66,7 +63,7 @@ export default function Header() {
             )}
           <Dropdown menu={{ items: menuItems }}>
             <div className="cursor-pointer">
-              <span>{loginInfo ? loginInfo.nickname : "未登录"}</span>
+              <span>{user.userInfo?.nickname}</span>
               <CaretDownOutlined className="ml-[10px]" />
             </div>
           </Dropdown>
